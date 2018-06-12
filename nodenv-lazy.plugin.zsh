@@ -4,7 +4,7 @@ if type nodenv &> /dev/null; then
   export PATH="${NODENV_SHIMS}:${PATH}"
   source $(which nodenv)/../../completions/nodenv.zsh
   function nodenv() {
-    unset nodenv
+    unset -f nodenv > /dev/null 2>&1
     eval "$(command nodenv init -)"
     nodenv "$@"
   }
